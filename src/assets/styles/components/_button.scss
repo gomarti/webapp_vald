@@ -1,0 +1,26 @@
+
+@use '../base/variables' as *;
+
+.btn-retour {
+  position: fixed;
+  top: 50px;
+  left: 25px;
+  background-color: rgba(18, 18, 18, 0.6);
+  border: none;
+  color: $text-white;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(18, 18, 18, 0.8);
+  }
+}

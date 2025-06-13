@@ -1,0 +1,14 @@
+@use '../base/variables' as *;
+
+.header {
+  background-color: $header-bg;
+  padding: 20px 0;
+  text-align: center;
+
+  h1 {
+    color: $text-white;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+  }
+}

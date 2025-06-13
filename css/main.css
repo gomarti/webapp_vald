@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #121212;
+  padding: 20px 0;
+  text-align: center;
+}
+.header h1 {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background-color: #2e2e2e;
+}
+.filters button {
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-retour {
+  position: fixed;
+  top: 50px;
+  left: 25px;
+  background-color: rgba(18, 18, 18, 0.6);
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease;
+}
+.btn-retour:hover {
+  background-color: rgba(18, 18, 18, 0.8);
+}
+
+.spotify-logo {
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  z-index: 1000;
+}
+.spotify-logo img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.2s ease;
+  background-color: #4a4848;
+  border-radius: 50%;
+}
+.spotify-logo img:hover {
+  transform: scale(1.1);
+}
+
+.app {
+  background-color: #3a3838;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.morceaux-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.morceau {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 6px;
+  background-color: #4a4848;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+.morceau:hover {
+  transform: scale(1.05);
+}
+.morceau img {
+  width: 100%;
+  display: block;
+  border-radius: 6px 6px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.titre {
+  color: #ffffff;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.album-taxo {
+  font-size: 12px;
+  color: #cccccc;
+  margin-top: 4px;
+}
+
+.morceau-detail {
+  background-color: #3a3838;
+  color: #ffffff;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.banniere {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.banniere.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.banniere img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s ease 0.2s;
+}
+.infos.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.infos .gauche {
+  flex: 1 1 100%;
+}
+.infos .gauche h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.infos .gauche .artistes {
+  margin-top: 10px;
+  font-style: italic;
+}
+.infos .droite {
+  flex: 1 1 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+.infos .droite .album {
+  font-weight: bold;
+  font-size: 16px;
+}
+.infos .droite .date {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.ecoutes {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease 0.4s;
+}
+.ecoutes.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.paroles {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.toggle-lyrics {
+  background-color: #121212;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.paroles-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.paroles-wrapper.visible {
+  max-height: 1000px;
+  padding-top: 1rem;
+}
+
+.lyrics {
+  white-space: pre-wrap;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 700px;
+  line-height: 1.6;
+  padding: 0 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.paroles-wrapper.visible .lyrics {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .infos {
+    flex-direction: column;
+    text-align: center;
+  }
+  .infos .droite {
+    text-align: center;
+  }
+  .banniere img {
+    height: 250px;
+  }
+}
+.flip-list-move {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-list-enter-from,
+.flip-list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.flip-list-enter-active,
+.flip-list-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}/*# sourceMappingURL=main.css.map */

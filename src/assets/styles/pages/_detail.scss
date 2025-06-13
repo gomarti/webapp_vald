@@ -1,0 +1,147 @@
+@use '../base/variables' as *;
+
+.morceau-detail {
+  background-color: $primary-bg;
+  color: $text-white;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  font-family: $font-main;
+}
+
+.banniere {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 0.8s ease;
+
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s ease 0.2s;
+
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .gauche {
+    flex: 1 1 100%;
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .artistes {
+      margin-top: 10px;
+      font-style: italic;
+    }
+  }
+
+  .droite {
+    flex: 1 1 100%;
+    text-align: left;
+    margin-top: 10px;
+
+    .album {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .date {
+      font-size: 14px;
+      color: $text-grey;
+    }
+  }
+}
+
+.ecoutes {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease 0.4s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.paroles {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.toggle-lyrics {
+  background-color: $header-bg;
+  color: $text-white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+// ✅ Conteneur animé
+.paroles-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+
+  &.visible {
+    max-height: 1000px;
+    padding-top: 1rem;
+  }
+}
+
+// ✅ Paroles avec fade in
+.lyrics {
+  white-space: pre-wrap;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 700px;
+  line-height: 1.6;
+  padding: 0 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  .paroles-wrapper.visible & {
+    opacity: 1;
+  }
+}
+
+// Responsive pour petits écrans
+@media (max-width: 600px) {
+  .infos {
+    flex-direction: column;
+    text-align: center;
+
+    .droite {
+      text-align: center;
+    }
+  }
+
+  .banniere img {
+    height: 250px;
+  }
+}
