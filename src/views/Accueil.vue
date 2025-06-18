@@ -2,7 +2,7 @@
   <div class="app">
     <!-- Header -->
     <header class="header">
-      <h1>- Vald -</h1>
+      <h1>Vald</h1>
     </header>
 
     <!-- Filtres -->
