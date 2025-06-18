@@ -1,7 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
-import Accueil from '../views/accueil.vue'
-import Morceau from '../views/morceau.vue'
+import Accueil from '../views/Accueil.vue'
+import Morceau from '../views/Morceau.vue'
 const routes = [
   {
     path: '/',
